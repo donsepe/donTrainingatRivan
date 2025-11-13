@@ -55,5 +55,7 @@ nmap -v www._____.____
 
 nmap -sP 103.11.189.0/24 - scan of a network
 
- check for open and listening ports:
+ check for open and listening ports of my local machine:
 netstat -aon
+
+telnet for local and remote systems
