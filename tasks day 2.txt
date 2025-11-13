@@ -1,0 +1,58 @@
+session layer attack
+
+COREBABA:
+
+config t
+ip domain-name rivanit.com
+ip http secure-server
+username admin privilege 15 secret pass
+username don privilege 15 secret pass
+line vty 0 14
+ login local
+end
+
+
+task 3
+
+how to capture phone/cp convo
+
+COREBABA:
+
+config t
+no monitor session 1 source int fa0/5, fa0/7 both
+no monitor session 1 destination interface fa0/1
+end
+
+task 4:
+create a public/private key pair for encryption
+
+corebaba:
+
+config t
+ip domain-name keykeymo
+crypto key generate rsa
+512 or 1024
+
+task 5: OSI layer - Transport Layer Attack
+
+how an attack happpens:
+you need: IP and Port number: SOCKET
+
+HACKER			VICTIM
+-------SYN-------------->>
+<------ACK/SYN------------
+<-----ESTABLISHED-------->
+
+recon: nmap
+
+net use \\10.32.1.10\ipc$
+
+net use v: /delete - delete prev connection
+net use v: \\10.32.1.10\c$
+
+nmap -v www._____.____
+
+
+nmap -sP 103.11.189.0/24 - scan of a network
+
+
