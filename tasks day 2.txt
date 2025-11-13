@@ -55,4 +55,5 @@ nmap -v www._____.____
 
 nmap -sP 103.11.189.0/24 - scan of a network
 
-
+ check for open and listening ports:
+netstat -aon
