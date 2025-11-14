@@ -1,0 +1,8 @@
+208.8.8.144/otrs/index.pl
+root@localhost
+C1sc0123
+
+208.8.8.144/otrs/customer.pl
+user1
+C1sc0123
+

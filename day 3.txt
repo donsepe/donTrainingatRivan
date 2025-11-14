@@ -1,0 +1,55 @@
+no ip access-list extended POLICY1
+ip access-list extended POLICY1
+
+permit tcp any host 192.168.102.11 eq 80 
+permit tcp any host 192.168.102.11 eq 443
+permit icmp any host 192.168.102.11
+permit tcp any host 192.168.103.11 eq 2000
+permit tcp any host 192.168.103.11 eq 5060
+
+
+int gi2
+ip access-group POLICY1 in
+
+int gi3
+ip access-group POLICY1 in
+
+POLICY2
+(102 = ssh,dns)
+(103 = https,ssh,5060)
+
+102
+no ip access-list extended POLICY2
+ip access-list extended POLICY2
+
+permit tcp any host 192.168.102.11 eq 22
+permit tcp any host 192.168.102.11 eq 53
+
+103
+no ip access-list extended POLICY2
+ip access-list extended POLICY2
+permit tcp any host 192.168.103.11 eq 443
+permit tcp any host 192.168.103.11 eq 22
+permit tcp any host 192.168.103.11 eq 5060
+
+int gi2
+ip access-group POLICY2 in
+int gi3
+ip access-group POLICY2 in
+
+102
+no ip access-list extended POLICY3
+ip access-list extended POLICY3
+permit tcp any host 192.168.102.11 eq 23
+permit tcp any host 192.168.102.11 eq 80
+permit icmp any host 192.168.102.11 
+
+103
+no ip access-list extended POLICY3
+ip access-list extended POLICY3
+permit tcp any host 192.168.103.11 eq 2000
+permit tcp any host 192.168.103.11 eq 443
+permit icmp any host 192.168.102.11 
+
+
+
